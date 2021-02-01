@@ -1,0 +1,14 @@
+block variables
+doctype html
+html
+	head
+		title= `${title}`
+	body
+		h1 Words You Never  Noticed
+		form(action="/logout",method = "POST")
+			input(value="1")
+			input(type="submit" value="Submit")	
+		block layout-content
+
+ 
+

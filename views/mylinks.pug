@@ -1,0 +1,8 @@
+extends layout
+
+block layout-content
+	ul
+		for link in links_user
+			h3= link.name 
+			li= link.url
+		 

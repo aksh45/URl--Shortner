@@ -1,0 +1,43 @@
+extends layout2
+
+block layout2-content
+	div(class="row justify-content-center")
+		div(class="col-md-10  shadow p-3 mb-5 bg-white rounded")
+			h4(class="pt-3 content-center") Forgot password
+			br
+			form(name = "form" id ="form")
+				div(class="row form-group")
+					div(class="col-md-12")
+						div(id="error_msg")
+				div(class="row form-group")
+					div(class="col-md-12")
+						label( for="userid") userid
+						br
+						input(
+							class="inp"
+							type="text"
+							id="userid"
+							name="userid"
+							required
+						)
+				div(class="row form-group")
+					div(class="col-md-12")
+						label(for="email") Email
+						br
+						input(
+							class="inp"
+							type="email"
+							id="email"
+							name="email"
+							required
+						)
+				br
+				div(class="row form-group")
+					div(class="col-md-6")
+						input(class="button" type="submit" value="Enter" )
+
+	script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js")
+	script
+		include ./js/google.js
+	script
+		include ./js/submit.js

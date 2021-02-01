@@ -1,0 +1,10 @@
+extends layout
+
+block layout-content
+	ul
+		for post in posts_user
+			h3= post.title
+			p= post.description
+			p= post.author
+	include footer.pug
+		 

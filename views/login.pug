@@ -1,0 +1,50 @@
+extends layout2
+
+block layout2-content
+	div(class="row justify-content-center")
+		div(class="col-md-10  shadow p-3 mb-5 bg-white rounded")
+			h4(class="pt-3 content-center") Login
+			br
+			form(name="form" id="form")
+				div(class="row form-group")
+					div(class="col-md-12")
+						div(id="error_msg")
+				div(class="row form-group")
+					div(class="col-md-12")
+						label( for="userid") userid
+						br
+						input(
+							class="inp"
+							type="text"
+							id="userid"
+							name="userid"
+							required
+						)
+				div(class="row form-group")
+					div(class="col-md-12")
+						label(for="password") Password
+						br
+						input(
+							class="inp"
+							type="password"
+							id="password"
+							name="password"
+							required
+						)
+				br
+				div(class="row form-group")
+					div(class="col-md-6")
+						a(
+							class= "atag"	
+							href= "/auth/register")  sign up instead
+					div(class="col-md-6")
+						input(class="button" type="submit" value="Sign In" )
+				div(class="row justify-content-center")
+					div(class="col-md-4")
+						p(style="color:#0047b3;")
+							| 
+							a(class="atag" href="/auth/forgot") Reset Your Password 
+	
+	script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js")
+	script
+		include ./js/loggin.js

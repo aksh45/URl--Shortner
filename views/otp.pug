@@ -1,0 +1,64 @@
+doctype html
+html
+	head
+		title= `${title}`
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+		style
+			include ./css/font.css
+		style
+			include ./css/bootstrap.min.css
+
+	body
+		div.container
+			div.row.justify-content-center
+
+				div.col-md-8.pt-4
+					div.row.justify-content-center
+						div.col-md-11.shadow.p-3.mb-5.bg-white.rounded
+							h4.pt-3.text-center Enter Otp  
+							br
+							form(id= "form" action="/auth/verification" method="POST")
+								div.row.justify-content-center
+									div.col-md-12
+										div(id="error_msg")
+								div.row.justify-content-center
+									div.col-md-12
+										h4.text-center= userid
+										input(
+											type="hidden"
+											id="userid"
+											autocomplete="off"
+											name="userid"
+											value= userid
+											required
+										)
+
+								div.row.form-group
+									div.col-md-12
+										label(for="email") otp
+										br
+										input(
+											class="inp"
+											type="text"
+											id="otp"
+											name="otp"
+											required
+										)
+								div.row.form-group.pt-4
+									div.col-md-6
+										a(
+											class= "atag"	
+											href= "/auth/login") Sign in instead
+									div.col-md-6
+										input(
+											class="button"
+											type="submit" 
+											value="Sign Up"
+											name="button"
+											id="button"
+										)
+							p.text-center otp has been sent on your registered email
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js")
+		script
+			include ./js/otp.js
