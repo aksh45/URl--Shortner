@@ -11,7 +11,9 @@ password :- CRu39XBUPkufVji
 
 
 ### Short Urls
+
 https://shq.herokuapp.com/aksh45/instagram
+
 https://shq.herokuapp.com/aksh45/github
 
 ### Password Protected Urls
@@ -41,6 +43,7 @@ This website allows you to manage all your urls at a single platform
 ![Mobile Url Management Screen](demo_images/mobile_app_view.png)
 
 ## Website Overview(Desktop View)
+
 
 ### Login Screen
 
