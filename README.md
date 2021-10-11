@@ -1,3 +1,3 @@
 # About 
 
-To use this app click on [this]('http://shq.herokuapp.com/') link
+To use this app click on [this](https://shq.herokuapp.com/) link
