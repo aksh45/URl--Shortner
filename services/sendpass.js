@@ -17,7 +17,7 @@ const otpgenerator = async(data) =>{
 			secure: true,
   			auth: {
     				user: 'aksh.aksh0929@gmail.com',
-    				pass: 'DoubleEndedQueue#09'
+    				pass: process.env.PASS
   			}
 		});
 		var mailOptions = {

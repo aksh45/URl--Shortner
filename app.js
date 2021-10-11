@@ -24,4 +24,4 @@ app.get('*',function(req, res){
 mongoose.connect(process.env.DB_CONNECT,{ useNewUrlParser: true,useUnifiedTopology: true },() =>{
 });
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
