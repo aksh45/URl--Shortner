@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 require('dotenv/config');
-const shortroute = require('./routes/posts');
+const shortroute = require('./routes/short_url');
 const authroute = require('./routes/auth');
 const mylinks = require('./routes/mylinks');
 const available = require('./routes/available');
@@ -24,4 +24,4 @@ app.get('*',function(req, res){
 mongoose.connect(process.env.DB_CONNECT,{ useNewUrlParser: true,useUnifiedTopology: true },() =>{
 });
 
-app.listen(process.env.PORT || 3000);
+app.listen(3000);

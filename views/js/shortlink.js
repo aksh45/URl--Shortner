@@ -6,11 +6,13 @@ $(document).ready(function() {
         // get the form data
         // there are many ways to get this data using jQuery (you can use the class or id also)
         var formData = {
-            'name'              : $('input[name=name]').val(),
-            'url'             : $('input[name=url]').val(),
-	    'button'           : $('input[name=button]').val()
+            'name'             : $('input[name=name]').val(),
+            'url'              : $('input[name=url]').val(),
+	        'button'           : $('input[name=button]').val(),
+            'password'         : $('input[name=password]').val(),
+            'make_public'      : $('#make_public').prop('checked') == true ? true: false,
         };
-
+        console.log($('input[name=public_link]').val())
         // process the form
         $.ajax({
             type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)

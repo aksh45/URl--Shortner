@@ -34,7 +34,10 @@ const namevalidator = (data) =>{
 const url_schema = joi.object({
 	name:joi.string().regex(/^[a-zA-Z0-9_]{3,10}$/).required(),
 	button:joi.string().max(5).required(),
-	url:joi.string().required()
+	url:joi.string().required(),
+	password: joi.string().allow(null, ''),
+	make_public: joi.boolean(),
+
 });
 	const error =  url_schema.validate(data);
 	return error;

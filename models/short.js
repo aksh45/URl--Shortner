@@ -16,6 +16,14 @@ const authschema =  mongoose.Schema({
 		min:2,
 		max:100
 	},
+	password:{
+		type:String,
+		min:2,
+		max:100
+	},
+	make_public:{
+		type:Boolean
+	},
 	Date:{
 		type:Date,
 		default:Date.now

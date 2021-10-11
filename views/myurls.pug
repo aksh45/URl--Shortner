@@ -1,0 +1,46 @@
+block variables
+doctype html
+html
+	head
+		title= `${title}`
+		meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+		style
+			include ./css/font.css
+		style
+			include ./css/jquerysctipttop.css
+		style
+			include ./css/bootstrap.min.css
+		link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous")
+
+	body
+		div.container
+			div.row.justify-content-center
+				div.col-md-10.pt-3
+					div.row.justify-content-center
+						div.col-md-10.pt-4
+							h3.text-center Your Short Urls
+							br
+							table.table.table-bordered#ak
+								thead
+									tr
+										th(scope="col") Short Url
+										th(scope="col") Actual Url
+								tbody(id="table_entry")
+									for myurl in shorturls
+										tr 
+											th
+												a(href=`${myuserid}`+"/"+`${myurl.name}`)= 'http://52.168.90.133' + '/'+myuserid+'/'+myurl.name 
+											th
+												a(href=`${myurl.url}`)= myurl.url
+		
+		script(src="https://code.jquery.com/jquery-1.12.4.min.js")
+		script
+			include ./js/bootstrap.min.js
+		script
+			include ./js/bootstable.js
+		script.
+			 $('table').SetEditable();
+		script
+			include ./js/url.js
+		script
+			include ./js/shortlink.js

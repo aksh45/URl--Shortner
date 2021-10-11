@@ -143,7 +143,7 @@ function rowElim(but) {  //Elimina la fila actual
     url: tmp,
     type: 'DELETE',
     success: function(result) {
-        console.log('success!!!')
+      window.location.href = '/'
     }
 });
 

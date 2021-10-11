@@ -22,13 +22,14 @@ html
 					div.row.justify-content-center
 						div.col-md-10
 							br
+							
 							form( action="/" id="form" method="POST")
 								div.row.justify-content-center
 									div.col-md-8.pt-4
 										div(id="error_msg")
 								div.row.form-group
-									div.col-md-6
-										label(for="name") Name
+									div.col-md-4
+										label(for="name") Short Url Alias
 										br
 										input(
 											class="inp"
@@ -38,7 +39,7 @@ html
 											autocomplete="off"
 											required
 										)
-									div.col-md-6
+									div.col-md-4
 										label(for="url") Url
 										br
 										input(
@@ -48,14 +49,32 @@ html
 											id="url"
 											required
 										)
+									div.col-md-4
+										label(for="password") Password
+										br
+										input(
+											class="inp"
+											type="password"
+											name="password"
+											id="password"
+										)
 								div.row.form-group
-									div.col-md-12
+									div.col-md-4
+										div.form-check
+											input(type="checkbox" class="form-check-input" value="yes" name="make_public" id="make_public")
+											label(
+												class="form-check-label"
+											) Make short-url public
+									div.col-md-8
 										input(class="button" type="submit" id="button" name="button" value="Short" disabled="disabled")
+									
 					div.row.justify-content-center
-						div.col-md-10.pt-4
+						div.col-md-8.pt-4
 							h3.text-center Your Short Urls
 							br
-							table.table.table-bordered#ak
+							p Showing Upto 10 short urls per page
+							br
+							table.table.table-responsive#ak
 								thead
 									tr
 										th(scope="col") Short Url
@@ -64,10 +83,45 @@ html
 									for myurl in shorturls
 										tr 
 											th
-												a(href=`${myuserid}`+"/"+`${myurl.name}`)= myurl.name 
+												a(href=`${myuserid}`+"/"+`${myurl.name}`)= 'e.sciegne.tech' + '/'+myuserid+'/'+myurl.name 
 											th
 												a(href=`${myurl.url}`)= myurl.url
-		
+							div.row.justify-content-center
+								div.col-md-4.pt-4
+									nav(aria-label="...")
+										ul(class="pagination")
+											li(class="page-item disabled" id="previous_class")
+												a(class="page-link" id= "previous" href="/" tabindex="-1") Previous
+											li(class="page-item" id="next_class")
+												a(class="page-link" id = "next" href="/") Next
+										p(hidden id="total_enteries")= count
+										script.
+											var urlParams = new URLSearchParams(window.location.search);
+											var page = parseInt(urlParams.get('page')) || 1;
+											var count = parseInt(document.getElementById("total_enteries").innerHTML);
+											console.log(count);
+											if(page > 1 && page <(count/10)+(count%10 != 0)){
+												if(page == 2)
+													document.getElementById("previous").href = "/";
+												else 
+													document.getElementById("previous").href = "/?page="+ (page-1); 
+												document.getElementById("previous_class").classList.remove('disabled');
+											}
+											else{
+												document.getElementById("previous_class").classList.add('disabled');
+
+											}
+											if(page< (parseInt(count/10)+(count%10 != 0)) ){
+												console.log(count)
+												document.getElementById("next").href = "/?page="+ (page+1); 
+											}
+											else{
+												document.getElementById("next_class").classList.add('disabled');
+											}
+											
+										
+							
+							
 		script(src="https://code.jquery.com/jquery-1.12.4.min.js")
 		script
 			include ./js/bootstrap.min.js
