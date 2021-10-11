@@ -4,10 +4,11 @@ const nodemailer = require('nodemailer');
 var otp_n;
 var Data;
 const otpgenerator = async(data) =>{
-	 Data = data;
-	 otp_n = Math.floor((Math.random()+1)*1000+Math.random()*100+Math.random()*10+Math.random());
+	Data = data;
+	otp_n = Math.floor((Math.random()+1)*1000+Math.random()*100+Math.random()*10+Math.random());
 	console.log(data._id);
 	console.log(otp_n);
+	console.log(process.env.PASS)
 	const token = jwt.sign({_id:data._id,userid:data.userid,otp:otp_n},process.env.TOK,{ expiresIn:'10min' });
 	 try{
 		var transporter = nodemailer.createTransport({
